@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IntentoDespliegue")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8a1c7674dae1d052f41f2f7d4119c53e26abd24")]
 [assembly: System.Reflection.AssemblyProductAttribute("IntentoDespliegue")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IntentoDespliegue")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

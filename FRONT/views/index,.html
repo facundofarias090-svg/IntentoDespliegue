@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario para registrar y consultar personas.">
+    <title>Personas | Registro</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+
+<body>
+
+    <main class="page-shell">
+        <header class="page-header">
+            <div>
+                <p class="eyebrow">GESTIÓN DE PERSONAS</p>
+                <h1>Registro de personas</h1>
+                <p class="page-intro">Completá el formulario para cargar los datos de una persona.</p>
+            </div>
+            <span class="header-icon" aria-hidden="true">P</span>
+        </header>
+
+        <section class="panel" aria-labelledby="form-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">NUEVO REGISTRO</p>
+                    <h2 id="form-title">Datos personales</h2>
+                </div>
+                <span class="required-note">* Campos obligatorios</span>
+            </div>
+            <form id="persona-form" action="#" method="post">
+                <table class="form-table">
+                    <tbody>
+                        <tr>
+                            <th scope="row"><label for="Nombre">Nombre <span>*</span></label></th>
+                            <td><input id="Nombre" name="Nombre" type="text" placeholder="Ej. Martina" autocomplete="given-name" required></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="Apellido">Apellido <span>*</span></label></th>
+                            <td><input id="Apellido" name="Apellido" type="text" placeholder="Ej. Gómez" autocomplete="family-name" required></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="Documento">Documento <span>*</span></label></th>
+                            <td><input id="Documento" name="Documento" type="text" placeholder="Ej. 32.456.789" required></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="FechaNacimiento">Fecha de nacimiento <span>*</span></label></th>
+                            <td><input id="FechaNacimiento" name="FechaNacimiento" type="date" required></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="Direccion">Dirección <span>*</span></label></th>
+                            <td><input id="Direccion" name="Direccion" type="text" placeholder="Calle y número" autocomplete="street-address" required></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="Salario">Salario <span>*</span></label></th>
+                            <td><input id="Salario" name="Salario" type="number" min="0" step="0.01" placeholder="0" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-actions">
+                    <button class="button button-primary" type="submit">Guardar persona</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel people-panel" aria-labelledby="people-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">DIRECTORIO</p>
+                    <h2 id="people-title">Personas registradas</h2>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Documento</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaPersonas"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <input class="modal-toggle" type="checkbox" id="edit-modal-toggle">
+        <div class="modal-backdrop" role="presentation">
+            <section class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-title">
+                <div class="modal-heading">
+                    <div>
+                        <p class="eyebrow">DIRECTORIO</p>
+                        <h2 id="edit-title">Editar persona</h2>
+                    </div>
+                    <label class="modal-close" for="edit-modal-toggle" aria-label="Cerrar ventana de edición">&times;</label>
+                </div>
+                <form id="editar-persona-form" action="#" method="post">
+                    <input id="editarPersonaID" name="PersonaID" type="hidden">
+                    <table class="form-table">
+                        <tbody>
+                            <tr>
+                                <th scope="row"><label for="editarNombre">Nombre <span>*</span></label></th>
+                                <td><input id="editarNombre" name="Nombre" type="text" required></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="editarApellido">Apellido <span>*</span></label></th>
+                                <td><input id="editarApellido" name="Apellido" type="text" required></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="editarDocumento">Documento <span>*</span></label></th>
+                                <td><input id="editarDocumento" name="Documento" type="text" required></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="editarFechaNacimiento">Fecha de nacimiento <span>*</span></label></th>
+                                <td><input id="editarFechaNacimiento" name="FechaNacimiento" type="date" required></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="editarDireccion">Dirección <span>*</span></label></th>
+                                <td><input id="editarDireccion" name="Direccion" type="text" required></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="editarSalario">Salario <span>*</span></label></th>
+                                <td><input id="editarSalario" name="Salario" type="number" min="0" step="0.01" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="form-actions">
+                        <label class="button button-secondary" for="edit-modal-toggle">Cancelar</label>
+                        <button class="button button-primary" type="submit">Guardar cambios</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <input class="modal-toggle" type="checkbox" id="detail-modal-toggle">
+        <div class="modal-backdrop" role="presentation">
+            <section class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+                <div class="modal-heading">
+                    <div>
+                        <p class="eyebrow">DIRECTORIO</p>
+                        <h2 id="detail-title">Datos de la persona</h2>
+                    </div>
+                    <label class="modal-close" for="detail-modal-toggle" aria-label="Cerrar datos de la persona">&times;</label>
+                </div>
+                <dl class="person-details">
+                    <div><dt>Nombre y apellido</dt><dd id="detalleNombre"></dd></div>
+                    <div><dt>Documento</dt><dd id="detalleDocumento"></dd></div>
+                    <div><dt>Fecha de nacimiento</dt><dd id="detalleFechaNacimiento"></dd></div>
+                    <div><dt>Dirección</dt><dd id="detalleDireccion"></dd></div>
+                    <div><dt>Salario</dt><dd id="detalleSalario"></dd></div>
+                </dl>
+            </section>
+        </div>
+    </main>
+    <script src="../js/Persona.js"></script>
+</body>
+</html>

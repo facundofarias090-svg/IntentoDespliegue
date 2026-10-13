@@ -1,5 +1,6 @@
 using IntentoDespliegue.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +49,23 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
+
+var frontPath = Path.GetFullPath(
+    Path.Combine(builder.Environment.ContentRootPath, "..", "FRONT"));
+var frontFileProvider = new PhysicalFileProvider(frontPath);
+var defaultFilesOptions = new DefaultFilesOptions
+{
+    FileProvider = frontFileProvider
+};
+defaultFilesOptions.DefaultFileNames.Clear();
+defaultFilesOptions.DefaultFileNames.Add("views/index,.html");
+
+app.UseDefaultFiles(defaultFilesOptions);
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = frontFileProvider,
+    RequestPath = ""
+});
 
 app.UseAuthorization();
 

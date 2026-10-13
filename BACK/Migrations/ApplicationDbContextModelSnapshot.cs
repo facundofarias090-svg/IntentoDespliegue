@@ -40,7 +40,8 @@ namespace IntentoDespliegue.Migrations
 
                     b.Property<string>("Documento")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
@@ -53,6 +54,9 @@ namespace IntentoDespliegue.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("PersonaID");
+
+                    b.HasIndex("Documento")
+                        .IsUnique();
 
                     b.ToTable("Persona");
                 });

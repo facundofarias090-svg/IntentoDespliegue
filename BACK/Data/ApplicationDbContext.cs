@@ -12,4 +12,10 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Persona> Persona { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Persona>()
+            .HasIndex(persona => persona.Documento)
+            .IsUnique();
+    }
 }

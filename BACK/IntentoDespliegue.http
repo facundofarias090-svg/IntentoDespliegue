@@ -1,0 +1,6 @@
+@IntentoDespliegue_HostAddress = http://localhost:5046
+
+GET {{IntentoDespliegue_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

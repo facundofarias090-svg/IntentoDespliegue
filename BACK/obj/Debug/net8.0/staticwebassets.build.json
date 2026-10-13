@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "KpHkTeH6dFVfggCjUrt9S/SubaQPex5glX3UlWfrtC4=",
+  "Source": "IntentoDespliegue",
+  "BasePath": "_content/IntentoDespliegue",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
